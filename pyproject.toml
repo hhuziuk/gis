@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "osmguide"
+version = "0.1.0"
+description = "Data-preparation helpers for the GIS / OpenStreetMap learning guide"
+requires-python = ">=3.12"
+dependencies = [
+    "osmium>=4.3",
+    "geopandas>=1.1",
+    "contextily>=1.7",
+    "shapely>=2.1",
+    "matplotlib>=3.10",
+    "pyproj>=3.7",
+    "rtree>=1.0",
+]
+
+[project.optional-dependencies]
+# Opt-in so the core data layer stays lean; install with: pip install -e ".[notebooks]"
+notebooks = ["jupyterlab", "ipykernel"]
+
+[tool.setuptools]
+packages = ["osmguide"]
